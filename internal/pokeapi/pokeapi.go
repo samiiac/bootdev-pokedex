@@ -1,10 +1,11 @@
 package pokeapi 
 import (
 	"github.com/samiiac/bootdev-pokedex/internal/pokecache"
+	"time"
 )
 
 
-cache := pokecache.NewCache(5)
+var cache = pokecache.NewCache(5 * time.Second)
 
 
 

@@ -21,8 +21,13 @@ func startRepl(c *config) {
 	if len(input) == 0 {
      continue
 	}
+	args := ""
+	if len(input) > 1 {
+		args = input[1]
+	}
+	
 	if command,ok := c.commandRegistry[input[0]];ok {
-     err := command.callback(c)
+     err := command.callback(c,args)
 	 if err != nil {
 		fmt.Println(err)
 	 }
